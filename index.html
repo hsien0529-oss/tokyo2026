@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>東京 & 野澤溫泉 8日遊 - 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&display=swap');
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #f3f4f6;
+        }
+
+        .tab-active {
+            border-bottom: 2px solid #3b82f6;
+            color: #3b82f6;
+            font-weight: bold;
+        }
+
+        .hidden-section {
+            display: none;
+        }
+
+        .timeline-line {
+            border-left: 2px dashed #cbd5e1;
+            position: absolute;
+            left: 14px;
+            top: 10px;
+            bottom: 0;
+            z-index: 0;
+        }
+
+        .star-rating {
+            color: #f59e0b;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+
+<body class="text-gray-800">
+
+    <!-- Header & Countdown -->
+    <header class="bg-blue-600 text-white p-6 shadow-md">
+        <div class="max-w-3xl mx-auto text-center">
+            <h1 class="text-3xl font-bold mb-2">🇯🇵 東京 & 野澤溫泉 8日冬之旅</h1>
+            <p class="text-blue-100">2026/02/15 (日) - 2026/02/22 (日)</p>
+            <div class="mt-4 bg-blue-700 rounded-lg p-3 inline-block">
+                <span class="text-sm">距離出發還有</span>
+                <div class="text-4xl font-mono font-bold" id="countdown">計算中...</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow sticky top-0 z-10 overflow-x-auto">
+        <div class="max-w-3xl mx-auto flex min-w-full sm:min-w-0">
+            <button onclick="switchTab('itinerary')" id="btn-itinerary"
+                class="flex-1 py-3 text-center tab-active hover:bg-gray-50 transition whitespace-nowrap px-2 text-sm sm:text-base">
+                <i class="fas fa-calendar-alt mb-1 block"></i> 行程
+            </button>
+            <button onclick="switchTab('booking')" id="btn-booking"
+                class="flex-1 py-3 text-center hover:bg-gray-50 transition whitespace-nowrap px-2 text-sm sm:text-base">
+                <i class="fas fa-passport mb-1 block"></i> 預訂
+            </button>
+            <button onclick="switchTab('dining')" id="btn-dining"
+                class="flex-1 py-3 text-center hover:bg-gray-50 transition whitespace-nowrap px-2 text-sm sm:text-base">
+                <i class="fas fa-utensils mb-1 block"></i> 美食
+            </button>
+            <button onclick="switchTab('transport')" id="btn-transport"
+                class="flex-1 py-3 text-center hover:bg-gray-50 transition whitespace-nowrap px-2 text-sm sm:text-base">
+                <i class="fas fa-train mb-1 block"></i> 交通
+            </button>
+            <button onclick="switchTab('attractions')" id="btn-attractions"
+                class="flex-1 py-3 text-center hover:bg-gray-50 transition whitespace-nowrap px-2 text-sm sm:text-base">
+                <i class="fas fa-map-marked-alt mb-1 block"></i> 景點
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="max-w-3xl mx-auto p-4 mb-20">
+
+        <!-- SECTION: ITINERARY -->
+        <div id="section-itinerary">
+            <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-6">
+                <p class="text-sm text-yellow-700">💡 提示：點擊「交通」分頁可查詢 Skyliner 與新幹線班次。</p>
+            </div>
+            <div class="space-y-4" id="itinerary-container">
+                <!-- Javascript will inject itinerary cards here -->
+            </div>
+        </div>
+
+        <!-- SECTION: MY BOOKINGS -->
+        <div id="section-booking" class="hidden-section">
+
+            <!-- Flight Outbound -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden mb-4 border-l-4 border-blue-500">
+                <div class="bg-blue-50 p-3 border-b flex justify-between items-center">
+                    <h3 class="font-bold text-blue-800"><i class="fas fa-plane-departure mr-2"></i>去程機票 (Scoot)</h3>
+                    <div class="flex gap-2">
+                        <span class="text-xs bg-cyan-100 text-cyan-800 px-2 py-1 rounded">Trip.com</span>
+                        <span class="text-xs bg-blue-200 text-blue-800 px-2 py-1 rounded">已開票</span>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <div class="flex justify-between items-center mb-2">
+                        <div class="text-2xl font-bold">TR874</div>
+                        <div class="text-right">
+                            <div class="text-xs text-gray-500">Trip.com 訂單</div>
+                            <div class="text-sm font-mono text-gray-700">#1616324652894157</div>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center text-center mb-3">
+                        <div>
+                            <div class="text-xl font-bold">14:00</div>
+                            <div class="text-xs text-gray-500">台北 TPE</div>
+                        </div>
+                        <div class="text-gray-400"><i class="fas fa-arrow-right"></i></div>
+                        <div>
+                            <div class="text-xl font-bold">18:00</div>
+                            <div class="text-xs text-gray-500">東京 NRT</div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 p-2 rounded mb-2">
+                        <div class="text-xs text-gray-500 mb-1">航空公司訂位代號 (PNR)</div>
+                        <div class="font-mono text-lg font-bold text-blue-700">J77LTF</div>
+                    </div>
+                    <div class="text-xs text-gray-600 border-t pt-2">
+                        <i class="fas fa-calendar mr-1"></i> 2/15 (日) &nbsp;|&nbsp;
+                        <i class="fas fa-user mr-1"></i> 4人
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hotel 1 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden mb-4 border-l-4 border-indigo-500">
+                <div class="bg-indigo-50 p-3 border-b flex justify-between items-center">
+                    <h3 class="font-bold text-indigo-800"><i class="fas fa-hotel mr-2"></i>上野住宿 (1晚)</h3>
+                    <div class="flex gap-2">
+                        <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">Booking.com</span>
+                        <span class="text-xs bg-indigo-200 text-indigo-800 px-2 py-1 rounded">已確認</span>
+                    </div>
+                </div>
+                <div class="p-4 text-sm">
+                    <div class="flex justify-between items-start mb-1">
+                        <div class="font-bold text-lg">Hop Inn Tokyo Ueno</div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Hop+Inn+Tokyo+Ueno" target="_blank"
+                            class="text-blue-500 text-xs hover:underline">
+                            <i class="fas fa-map-marker-alt mr-1"></i>地圖
+                        </a>
+                    </div>
+                    <div class="text-xs text-gray-500 mb-2">東京都, 東京, 6 Chome-7-19 Ueno, Taito City</div>
+
+                    <div class="flex justify-between items-center mb-3 text-gray-700 bg-gray-50 p-2 rounded">
+                        <div><i class="fas fa-sign-in-alt text-green-600 mr-1"></i> 2/15 (日) 15:00</div>
+                        <div class="text-gray-400"><i class="fas fa-arrow-right"></i></div>
+                        <div><i class="fas fa-sign-out-alt text-red-600 mr-1"></i> 2/16 (一) 11:00</div>
+                    </div>
+
+                    <div class="bg-blue-50 p-3 rounded border border-blue-100">
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="text-gray-600 text-xs">Booking.com 確認碼</span>
+                            <span class="text-xs font-bold text-gray-600">PIN: 7650</span>
+                        </div>
+                        <div class="font-mono text-xl font-bold text-blue-700 tracking-wider mb-1">6373223684</div>
+                        <div class="text-xs text-blue-600 border-t border-blue-200 pt-1 mt-1">
+                            <i class="fas fa-bed mr-1"></i> 2間客房 (2位成人)
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hotel 2 -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden mb-4 border-l-4 border-purple-500">
+                <div class="bg-purple-50 p-3 border-b flex justify-between items-center">
+                    <h3 class="font-bold text-purple-800"><i class="fas fa-building mr-2"></i>東京八丁堀 (3晚)</h3>
+                    <div class="flex gap-2">
+                        <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">e路東瀛</span>
+                        <span class="text-xs bg-purple-200 text-purple-800 px-2 py-1 rounded">已確認</span>
+                    </div>
+                </div>
+                <div class="p-4 text-sm">
+                    <div class="flex justify-between items-start mb-1">
+                        <div class="font-bold text-lg">MIMARU Tokyo Hatchobori</div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=MIMARU+Tokyo+Hatchobori"
+                            target="_blank" class="text-blue-500 text-xs hover:underline">
+                            <i class="fas fa-map-marker-alt mr-1"></i>地圖
+                        </a>
+                    </div>
+                    <div class="text-gray-600 mb-3">家庭房 (上下舖) | 4大人</div>
+
+                    <!-- Booking 1 -->
+                    <div class="bg-gray-50 p-3 rounded mb-2 border-l-2 border-purple-400">
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="font-bold text-purple-700">2/19 (四) 1晚</span>
+                            <span class="text-xs text-gray-500">入住15:00 / 退房11:00</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 text-xs">
+                            <div><span class="text-gray-500">參考編號:</span> <span
+                                    class="font-mono font-bold">1639863574</span></div>
+                            <div><span class="text-gray-500">訂單編號:</span> <span class="font-mono">6158371200</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Booking 2 -->
+                    <div class="bg-gray-50 p-3 rounded border-l-2 border-purple-400">
+                        <div class="flex justify-between items-center mb-1">
+                            <span class="font-bold text-purple-700">2/20 (五) 2晚</span>
+                            <span class="text-xs text-gray-500">入住15:00 / 退房11:00</span>
+                        </div>
+                        <div class="grid grid-cols-2 gap-2 text-xs">
+                            <div><span class="text-gray-500">參考編號:</span> <span
+                                    class="font-mono font-bold">1639846244</span></div>
+                            <div><span class="text-gray-500">訂單編號:</span> <span class="font-mono">6158362078</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hotel 3: Nozawa Onsen -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden mb-4 border-l-4 border-cyan-500">
+                <div class="bg-cyan-50 p-3 border-b flex justify-between items-center">
+                    <h3 class="font-bold text-cyan-800"><i class="fas fa-mountain mr-2"></i>野澤溫泉 (3晚)</h3>
+                    <span class="text-xs bg-cyan-200 text-cyan-800 px-2 py-1 rounded">已確認</span>
+                </div>
+                <div class="p-4 text-sm">
+                    <div class="flex justify-between items-start mb-1">
+                        <div class="font-bold text-lg">Haus St. Anton</div>
+                        <a href="https://www.google.com/maps/search/?api=1&query=Haus+St+Anton+Nozawa+Onsen"
+                            target="_blank" class="text-blue-500 text-xs hover:underline">
+                            <i class="fas fa-map-marker-alt mr-1"></i>地圖
+                        </a>
+                    </div>
+                    <div class="text-xs text-gray-500 mb-2">野澤溫泉村 日影口區域</div>
+
+                    <div class="flex justify-between items-center mb-3 text-gray-700 bg-gray-50 p-2 rounded">
+                        <div><i class="fas fa-sign-in-alt text-green-600 mr-1"></i> 2/16 (一)</div>
+                        <div class="text-gray-400"><i class="fas fa-arrow-right"></i></div>
+                        <div><i class="fas fa-sign-out-alt text-red-600 mr-1"></i> 2/19 (四)</div>
+                    </div>
+
+                    <div class="bg-cyan-50 p-3 rounded border border-cyan-100 mb-3">
+                        <div class="text-xs text-cyan-700 mb-2"><i class="fas fa-concierge-bell mr-1"></i> 飯店服務</div>
+                        <ul class="text-xs text-gray-600 space-y-1">
+                            <li>• 🎿 雪具租借 (住客享7折)</li>
+                            <li>• 🍽️ 主廚套餐晚餐 (¥10,000/人)</li>
+                            <li>• ♨️ 私人溫泉 (需預約)</li>
+                            <li>• 🧺 洗衣/烘乾 (¥1,000)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nozawa Dinner Reservations -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden mb-4 border-l-4 border-pink-500">
+                <div class="bg-pink-50 p-3 border-b flex justify-between items-center">
+                    <h3 class="font-bold text-pink-800"><i class="fas fa-utensils mr-2"></i>野澤晚餐預約</h3>
+                    <span class="text-xs bg-pink-200 text-pink-800 px-2 py-1 rounded">已預約</span>
+                </div>
+                <div class="p-4 text-sm space-y-3">
+                    <!-- Day 1 -->
+                    <div class="bg-gray-50 p-3 rounded border-l-2 border-pink-400">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-xs text-gray-500">2/16 (一)</span>
+                                <div class="font-bold text-pink-700">Haus St. Anton 主廚套餐</div>
+                                <div class="text-xs text-gray-500">8-10道料理 / ¥10,000/人</div>
+                            </div>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Haus+St+Anton+Nozawa+Onsen"
+                                target="_blank" class="text-blue-500 text-xs">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Day 2 -->
+                    <div class="bg-gray-50 p-3 rounded border-l-2 border-pink-400">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-xs text-gray-500">2/17 (二)</span>
+                                <div class="font-bold text-pink-700">Minato (港)</div>
+                                <div class="text-xs text-gray-500">傳統日式居酒屋</div>
+                            </div>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Minato+Izakaya+Nozawa+Onsen"
+                                target="_blank" class="text-blue-500 text-xs">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Day 3 -->
+                    <div class="bg-gray-50 p-3 rounded border-l-2 border-pink-400">
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-xs text-gray-500">2/18 (三)</span>
+                                <div class="font-bold text-pink-700">Suminoya (炭の屋)</div>
+                                <div class="text-xs text-gray-500">頂級和牛燒肉</div>
+                            </div>
+                            <a href="https://www.google.com/maps/search/?api=1&query=Suminoya+Nozawa+Onsen"
+                                target="_blank" class="text-blue-500 text-xs">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- JR Shinkansen Bookings -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden mb-4 border-l-4 border-green-600">
+                <div class="bg-green-50 p-3 border-b flex justify-between items-center">
+                    <h3 class="font-bold text-green-800"><i class="fas fa-train mr-2"></i>JR 新幹線 (去程 野澤)</h3>
+                    <div class="flex gap-2">
+                        <span class="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">えきねっと</span>
+                        <span class="text-xs bg-green-200 text-green-800 px-2 py-1 rounded">已購票</span>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <div class="flex justify-between items-center mb-2">
+                        <div class="text-2xl font-bold text-green-700">Hakutaka 551</div>
+                        <div class="text-right">
+                            <div class="text-xs text-gray-500">訂單編號</div>
+                            <div class="text-sm font-mono text-gray-700">E92063</div>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center text-center mb-3">
+                        <div>
+                            <div class="text-xl font-bold">06:34</div>
+                            <div class="text-xs text-gray-500">上野 UENO</div>
+                        </div>
+                        <div class="text-gray-400"><i class="fas fa-arrow-right"></i></div>
+                        <div>
+                            <div class="text-xl font-bold">08:16</div>
+                            <div class="text-xs text-gray-500">飯山 IIYAMA</div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded mb-2">
+                        <div class="grid grid-cols-2 gap-2 text-sm">
+                            <div><span class="text-gray-500">座位:</span> <span class="font-bold">8號車</span></div>
+                            <div><span class="text-gray-500">設備:</span> 指定座席</div>
+                        </div>
+                        <div class="text-xs text-gray-600 mt-2">
+                            3番D席・3番E席・4番D席・4番E席
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center text-xs text-gray-600 border-t pt-2">
+                        <div>
+                            <i class="fas fa-calendar mr-1"></i> 2/16 (一) &nbsp;|&nbsp;
+                            <i class="fas fa-user mr-1"></i> 大人3人・兒童1人
+                        </div>
+                        <div class="font-bold text-green-700">¥29,290</div>
+                    </div>
+                    <details class="mt-3 border-t pt-3">
+                        <summary class="text-sm text-green-700 cursor-pointer hover:text-green-900 flex items-center">
+                            <i class="fas fa-qrcode mr-2"></i> 顯示取票 QR Code
+                        </summary>
+                        <div class="mt-2 bg-gray-50 p-2 rounded">
+                            <img src="jr_booking_ueno_iiyama.jpg" alt="JR 去程訂單 QR Code" class="w-full rounded border">
+                            <p class="text-xs text-gray-500 mt-1 text-center">請於取票期限前領取車票</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-md overflow-hidden mb-4 border-l-4 border-teal-600">
+                <div class="bg-teal-50 p-3 border-b flex justify-between items-center">
+                    <h3 class="font-bold text-teal-800"><i class="fas fa-train mr-2"></i>JR 新幹線 (回程 東京)</h3>
+                    <div class="flex gap-2">
+                        <span class="text-xs bg-teal-100 text-teal-800 px-2 py-1 rounded">えきねっと</span>
+                        <span class="text-xs bg-teal-200 text-teal-800 px-2 py-1 rounded">已購票</span>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <div class="flex justify-between items-center mb-2">
+                        <div class="text-2xl font-bold text-teal-700">Hakutaka 572</div>
+                        <div class="text-right">
+                            <div class="text-xs text-gray-500">區間</div>
+                            <div class="text-sm font-mono text-gray-700">IIYAMA→TOKYO</div>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center text-center mb-3">
+                        <div>
+                            <div class="text-xl font-bold">18:12</div>
+                            <div class="text-xs text-gray-500">飯山 IIYAMA</div>
+                        </div>
+                        <div class="text-gray-400"><i class="fas fa-arrow-right"></i></div>
+                        <div>
+                            <div class="text-xl font-bold">20:00</div>
+                            <div class="text-xs text-gray-500">東京 TOKYO</div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 p-3 rounded mb-2">
+                        <div class="grid grid-cols-2 gap-2 text-sm">
+                            <div><span class="text-gray-500">座位:</span> <span class="font-bold">6號車</span></div>
+                            <div><span class="text-gray-500">設備:</span> 指定座席</div>
+                        </div>
+                        <div class="text-xs text-gray-600 mt-2">
+                            17番D席・17番E席・18番D席・18番E席
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center text-xs text-gray-600 border-t pt-2">
+                        <div>
+                            <i class="fas fa-calendar mr-1"></i> 2/19 (四) &nbsp;|&nbsp;
+                            <i class="fas fa-user mr-1"></i> 大人3人・兒童1人
+                        </div>
+                        <div class="font-bold text-teal-700">¥30,020</div>
+                    </div>
+                    <details class="mt-3 border-t pt-3">
+                        <summary class="text-sm text-teal-700 cursor-pointer hover:text-teal-900 flex items-center">
+                            <i class="fas fa-qrcode mr-2"></i> 顯示取票 QR Code
+                        </summary>
+                        <div class="mt-2 bg-gray-50 p-2 rounded">
+                            <img src="jr_booking_iiyama_tokyo.jpg" alt="JR 回程訂單 QR Code" class="w-full rounded border">
+                            <p class="text-xs text-gray-500 mt-1 text-center">請於取票期限前領取車票</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+
+            <!-- AIRPORT TRANSFER -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden mb-4 border-l-4 border-orange-500">
+                <div class="bg-orange-50 p-3 border-b flex justify-between items-center">
+                    <h3 class="font-bold text-orange-800"><i class="fas fa-shuttle-van mr-2"></i>機場接送 (Klook)</h3>
+                    <span class="text-xs bg-orange-200 text-orange-800 px-2 py-1 rounded">已確認</span>
+                </div>
+                <div class="p-4">
+                    <div class="flex justify-between items-center mb-2">
+                        <div class="text-lg font-bold">送機服務</div>
+                        <div class="text-xs text-gray-500 font-mono">訂單: QBE316475</div>
+                    </div>
+                    <div class="text-sm space-y-2">
+                        <div class="flex items-start">
+                            <i class="fas fa-clock text-orange-500 mt-1 w-5"></i>
+                            <div>
+                                <span class="font-bold">2026/02/22 (日) 09:00</span>
+                                <div class="text-xs text-gray-500">司機將於飯店大廳等候</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Flight Inbound -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden mb-4 border-l-4 border-green-500">
+                <div class="bg-green-50 p-3 border-b flex justify-between items-center">
+                    <h3 class="font-bold text-green-800"><i class="fas fa-plane-arrival mr-2"></i>回程機票 (EVA)</h3>
+                    <div class="flex gap-2">
+                        <span class="text-xs bg-cyan-100 text-cyan-800 px-2 py-1 rounded">Trip.com</span>
+                        <span class="text-xs bg-green-200 text-green-800 px-2 py-1 rounded">已開票</span>
+                    </div>
+                </div>
+                <div class="p-4">
+                    <div class="flex justify-between items-center mb-2">
+                        <div class="text-2xl font-bold text-green-600">BR197</div>
+                        <div class="text-right">
+                            <div class="text-xs text-gray-500">Trip.com 訂單</div>
+                            <div class="text-sm font-mono text-gray-700">#1616324652894157</div>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center text-center mb-3">
+                        <div>
+                            <div class="text-xl font-bold">14:00</div>
+                            <div class="text-xs text-gray-500">成田 NRT</div>
+                        </div>
+                        <div class="text-gray-400"><i class="fas fa-arrow-right"></i></div>
+                        <div>
+                            <div class="text-xl font-bold">17:05</div>
+                            <div class="text-xs text-gray-500">台北 TPE</div>
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 p-2 rounded mb-2">
+                        <div class="text-xs text-gray-500 mb-1">航空公司訂位代號 (PNR)</div>
+                        <div class="font-mono text-lg font-bold text-green-700">E6QA4U</div>
+                    </div>
+                    <div class="text-xs text-gray-600 border-t pt-2">
+                        <i class="fas fa-calendar mr-1"></i> 2/22 (日) &nbsp;|&nbsp;
+                        <i class="fas fa-user mr-1"></i> 4人
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION: DINING -->
+        <div id="section-dining" class="hidden-section">
+
+            <!-- DAY 1: NARITA & UENO (NEW) -->
+            <div class="mb-8">
+                <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                    <span
+                        class="bg-indigo-600 text-white w-8 h-8 rounded-full flex items-center justify-center mr-2 text-sm">1</span>
+                    2/15 抵達日推薦 (成田 & 上野)
+                </h2>
+                <div class="grid gap-4">
+                    <!-- Narita -->
+                    <div class="bg-white p-4 rounded-lg shadow border-l-4 border-blue-400">
+                        <div class="flex justify-between">
+                            <h3 class="font-bold text-lg">松戶富田麵絆 (成田T1) <a
+                                    href="https://www.google.com/maps/search/?api=1&query=富田麺絆+成田空港" target="_blank"
+                                    class="text-blue-400 text-xs"><i class="fas fa-map-marker-alt"></i></a></h3>
+                            <span class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">第1航廈 4F</span>
+                        </div>
+                        <p class="text-xs text-gray-500 mb-2">日本第一沾麵 / 濃厚豚骨魚介</p>
+                        <p class="text-sm text-gray-600">如果出關後肚子很餓，這是成田機場必吃神店。濃郁的沾麵醬汁非常銷魂，吃完再搭車也來得及。</p>
+                    </div>
+
+                    <div class="bg-gray-100 p-2 text-xs text-center rounded text-gray-500">
+                        <i class="fas fa-arrow-down"></i> 搭乘 Skyliner 前往上野 (約19:30-20:00 抵達)
+                    </div>
+
+                    <!-- Ueno 1 -->
+                    <div class="bg-white p-4 rounded-lg shadow border-l-4 border-indigo-500">
+                        <div class="flex justify-between">
+                            <h3 class="font-bold text-lg">鴨to蔥 (Kamo to Negi) <a
+                                    href="https://www.google.com/maps/search/?api=1&query=鴨to蔥+上野" target="_blank"
+                                    class="text-blue-400 text-xs"><i class="fas fa-map-marker-alt"></i></a></h3>
+                            <span class="text-xs bg-indigo-100 text-indigo-800 px-2 py-1 rounded">近飯店</span>
+                        </div>
+                        <p class="text-xs text-gray-500 mb-2">鴨肉拉麵 / 清爽系</p>
+                        <p class="text-sm text-gray-600">
+                            <strong>就在飯店走路2分鐘！</strong>上野超人氣名店，只用鴨、蔥、水熬煮的湯頭。週日晚上可能要排隊，但非常值得。
+                        </p>
+                    </div>
+
+                    <!-- Ueno 2 -->
+                    <div class="bg-white p-4 rounded-lg shadow">
+                        <div class="flex justify-between">
+                            <h3 class="font-bold text-lg">肉的大山 (Niku no Ooyama) <a
+                                    href="https://www.google.com/maps/search/?api=1&query=肉の大山+上野" target="_blank"
+                                    class="text-blue-400 text-xs"><i class="fas fa-map-marker-alt"></i></a></h3>
+                            <span class="text-xs bg-indigo-100 text-indigo-800 px-2 py-1 rounded">徒步3分</span>
+                        </div>
+                        <p class="text-xs text-gray-500 mb-2">炸肉餅 / 牛排 / 居酒屋</p>
+                        <p class="text-sm text-gray-600">阿美橫町老字號。門口可立食吃神級「和牛炸肉餅」，裡面有餐廳可坐下吃牛排，非常有日本下町氣氛。</p>
+                    </div>
+
+                    <!-- Ueno 3 -->
+                    <div class="bg-white p-4 rounded-lg shadow">
+                        <div class="flex justify-between">
+                            <h3 class="font-bold text-lg">Negishi (ねぎし) <a
+                                    href="https://www.google.com/maps/search/?api=1&query=ねぎし+上野" target="_blank"
+                                    class="text-blue-400 text-xs"><i class="fas fa-map-marker-alt"></i></a></h3>
+                            <span class="text-xs bg-indigo-100 text-indigo-800 px-2 py-1 rounded">上野站前</span>
+                        </div>
+                        <p class="text-xs text-gray-500 mb-2">牛舌定食 / 山藥泥</p>
+                        <p class="text-sm text-gray-600">如果不吃生食或炸物，牛舌定食是安全又美味的選擇。上野有好幾間分店，出餐快，適合累了一天的旅人。</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NOZAWA DINING -->
+            <div class="mb-8">
+                <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                    <span
+                        class="bg-blue-600 text-white w-8 h-8 rounded-full flex items-center justify-center mr-2 text-sm">雪</span>
+                    野澤溫泉 美食推薦
+                </h2>
+                <div class="bg-red-50 border border-red-200 p-3 rounded mb-4 text-sm text-red-700">
+                    <i class="fas fa-exclamation-circle"></i> 旺季請務必預約晚餐！建議提前預訂或17:30前排隊。
+                </div>
+
+                <!-- Hotel Restaurant -->
+                <div class="bg-gradient-to-r from-cyan-500 to-blue-500 text-white p-4 rounded-lg shadow mb-4">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="font-bold text-lg">🏨 Haus St. Anton 主廚套餐</h3>
+                        <span class="text-xs bg-white/20 px-2 py-1 rounded">住客優惠</span>
+                    </div>
+                    <p class="text-sm opacity-90 mb-2">8-10道料理 / 每日更換菜單 / 使用當季食材</p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-lg font-bold">¥10,000/人</span>
+                        <span class="text-xs opacity-75">一般價 ¥13,000</span>
+                    </div>
+                </div>
+
+                <!-- Japanese Izakaya -->
+                <div class="mb-4">
+                    <h3 class="font-bold text-gray-700 mb-2 flex items-center"><span class="mr-2">🍶</span> 日式居酒屋</h3>
+                    <div class="grid gap-3">
+                        <div class="bg-white p-3 rounded-lg shadow flex justify-between items-center">
+                            <div>
+                                <div class="font-bold">Aokiya (青木屋) <a
+                                        href="https://www.google.com/maps/search/?api=1&query=Aokiya+Nozawa+Onsen"
+                                        target="_blank" class="text-blue-400 text-xs"><i
+                                            class="fas fa-map-marker-alt"></i></a></div>
+                                <div class="text-xs text-gray-500">現代居酒屋 / 絕美雪景 / 精選清酒</div>
+                            </div>
+                            <a href="https://autoreserve.com/restaurants/4UGnzRNNW8uwKDP7ccXU" target="_blank"
+                                class="bg-blue-500 text-white text-xs px-3 py-1 rounded">線上訂位</a>
+                        </div>
+                        <div class="bg-white p-3 rounded-lg shadow flex justify-between items-center">
+                            <div>
+                                <div class="font-bold">Minato (港) <a
+                                        href="https://www.google.com/maps/search/?api=1&query=Minato+Izakaya+Nozawa+Onsen"
+                                        target="_blank" class="text-blue-400 text-xs"><i
+                                            class="fas fa-map-marker-alt"></i></a></div>
+                                <div class="text-xs text-gray-500">傳統居酒屋 / ☆ 0269-85-2609</div>
+                            </div>
+                            <span class="text-xs bg-pink-100 text-pink-700 px-2 py-1 rounded">已預約 2/17</span>
+                        </div>
+                        <div class="bg-white p-3 rounded-lg shadow flex justify-between items-center">
+                            <div>
+                                <div class="font-bold">Tsukushinbo (つくしんぼ) <a
+                                        href="https://www.google.com/maps/search/?api=1&query=Tsukushinbo+Nozawa+Onsen"
+                                        target="_blank" class="text-blue-400 text-xs"><i
+                                            class="fas fa-map-marker-alt"></i></a></div>
+                                <div class="text-xs text-gray-500">經典居酒屋料理 / ☆ 0269-85-3565</div>
+                            </div>
+                            <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">電話預約</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Western -->
+                <div class="mb-4">
+                    <h3 class="font-bold text-gray-700 mb-2 flex items-center"><span class="mr-2">🥩</span> 西式料理</h3>
+                    <div class="grid gap-3">
+                        <div class="bg-white p-3 rounded-lg shadow flex justify-between items-center">
+                            <div>
+                                <div class="font-bold">The Corner Steakhouse <a
+                                        href="https://www.google.com/maps/search/?api=1&query=The+Corner+Steakhouse+Nozawa+Onsen"
+                                        target="_blank" class="text-blue-400 text-xs"><i
+                                            class="fas fa-map-marker-alt"></i></a></div>
+                                <div class="text-xs text-gray-500">美式牛排 / 漢堡 / ☆ 0269-67-0146</div>
+                            </div>
+                            <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">電話預約</span>
+                        </div>
+                        <div class="bg-white p-3 rounded-lg shadow flex justify-between items-center">
+                            <div>
+                                <div class="font-bold">BILIKEN <a
+                                        href="https://www.google.com/maps/search/?api=1&query=BILIKEN+Nozawa+Onsen"
+                                        target="_blank" class="text-blue-400 text-xs"><i
+                                            class="fas fa-map-marker-alt"></i></a></div>
+                                <div class="text-xs text-gray-500">手工披薩 / 義大利麵 / ☆ 0269-85-2078</div>
+                            </div>
+                            <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">電話預約</span>
+                        </div>
+                        <div class="bg-white p-3 rounded-lg shadow flex justify-between items-center">
+                            <div>
+                                <div class="font-bold">Trattoria Bivacco <a
+                                        href="https://www.google.com/maps/search/?api=1&query=Trattoria+Bivacco+Nozawa+Onsen"
+                                        target="_blank" class="text-blue-400 text-xs"><i
+                                            class="fas fa-map-marker-alt"></i></a></div>
+                                <div class="text-xs text-gray-500">信州風義式料理</div>
+                            </div>
+                            <a href="https://autoreserve.com/en/restaurants/taWBB3i4fNHx8h2qwCXD" target="_blank"
+                                class="bg-blue-500 text-white text-xs px-3 py-1 rounded">線上訂位</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BBQ & Asian -->
+                <div class="mb-4">
+                    <h3 class="font-bold text-gray-700 mb-2 flex items-center"><span class="mr-2">🍖</span> 燒肉 & 亞洲料理
+                    </h3>
+                    <div class="grid gap-3">
+                        <div class="bg-white p-3 rounded-lg shadow flex justify-between items-center">
+                            <div>
+                                <div class="font-bold">Suminoya (炭の屋) <a
+                                        href="https://www.google.com/maps/search/?api=1&query=Suminoya+Nozawa+Onsen"
+                                        target="_blank" class="text-blue-400 text-xs"><i
+                                            class="fas fa-map-marker-alt"></i></a></div>
+                                <div class="text-xs text-gray-500">頂級和牛燒肉 / 韓式風味 / ☎ 070-4172-4581</div>
+                            </div>
+                            <span class="text-xs bg-pink-100 text-pink-700 px-2 py-1 rounded">已預約 2/18</span>
+                        </div>
+                        <div class="bg-white p-3 rounded-lg shadow flex justify-between items-center">
+                            <div>
+                                <div class="font-bold">Jugem (寿限無) <a
+                                        href="https://www.google.com/maps/search/?api=1&query=Jugem+Nozawa+Onsen"
+                                        target="_blank" class="text-blue-400 text-xs"><i
+                                            class="fas fa-map-marker-alt"></i></a></div>
+                                <div class="text-xs text-gray-500">中華料理 / 在地人愛店 / ☆ 0269-85-2735</div>
+                            </div>
+                            <span class="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded">電話預約</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Family Friendly -->
+                <div class="mb-4">
+                    <h3 class="font-bold text-gray-700 mb-2 flex items-center"><span class="mr-2">🍜</span> 親子友善</h3>
+                    <div class="grid gap-3">
+                        <div class="bg-white p-3 rounded-lg shadow flex justify-between items-center">
+                            <div>
+                                <div class="font-bold">Wakagiri (若桐) <a
+                                        href="https://www.google.com/maps/search/?api=1&query=Wakagiri+Nozawa+Onsen"
+                                        target="_blank" class="text-blue-400 text-xs"><i
+                                            class="fas fa-map-marker-alt"></i></a></div>
+                                <div class="text-xs text-gray-500">手打蕎麥麵 / 壽司 / ☆ 0269-85-2040</div>
+                            </div>
+                            <span class="text-xs bg-orange-100 text-orange-700 px-2 py-1 rounded">用餐前1週預約</span>
+                        </div>
+                        <div class="bg-white p-3 rounded-lg shadow flex justify-between items-center">
+                            <div>
+                                <div class="font-bold">Food Village Kongou <a
+                                        href="https://www.google.com/maps/search/?api=1&query=Food+Village+Kongou+Nozawa+Onsen"
+                                        target="_blank" class="text-blue-400 text-xs"><i
+                                            class="fas fa-map-marker-alt"></i></a></div>
+                                <div class="text-xs text-gray-500">美食街 (6間店) / ☆ 0269-67-0348</div>
+                            </div>
+                            <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">免預約</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cafes -->
+                <div class="mb-4">
+                    <h3 class="font-bold text-gray-700 mb-2 flex items-center"><span class="mr-2">☕</span> 咖啡廳 & 現代料理
+                    </h3>
+                    <div class="grid gap-3">
+                        <div class="bg-white p-3 rounded-lg shadow flex justify-between items-center">
+                            <div>
+                                <div class="font-bold">Tanuki Café <a
+                                        href="https://www.google.com/maps/search/?api=1&query=Tanuki+Cafe+Nozawa+Onsen"
+                                        target="_blank" class="text-blue-400 text-xs"><i
+                                            class="fas fa-map-marker-alt"></i></a></div>
+                                <div class="text-xs text-gray-500">日澳風咖啡廳</div>
+                            </div>
+                            <a href="https://www.tablecheck.com/en/tanukinozawa/reserve/message" target="_blank"
+                                class="bg-blue-500 text-white text-xs px-3 py-1 rounded">線上訂位</a>
+                        </div>
+                        <div class="bg-white p-3 rounded-lg shadow flex justify-between items-center">
+                            <div>
+                                <div class="font-bold">Tanuki Teppanyaki <a
+                                        href="https://www.google.com/maps/search/?api=1&query=Tanuki+Teppanyaki+Nozawa+Onsen"
+                                        target="_blank" class="text-blue-400 text-xs"><i
+                                            class="fas fa-map-marker-alt"></i></a></div>
+                                <div class="text-xs text-gray-500">信州食材鐵板燒</div>
+                            </div>
+                            <a href="https://www.tablecheck.com/en/tanukinozawa-teppanyaki/reserve/landing"
+                                target="_blank" class="bg-blue-500 text-white text-xs px-3 py-1 rounded">線上訂位</a>
+                        </div>
+                        <div class="bg-white p-3 rounded-lg shadow flex justify-between items-center">
+                            <div>
+                                <div class="font-bold">Gochisou Pizza Bar <a
+                                        href="https://www.google.com/maps/search/?api=1&query=Gochisou+Pizza+Bar+Nozawa+Onsen"
+                                        target="_blank" class="text-blue-400 text-xs"><i
+                                            class="fas fa-map-marker-alt"></i></a></div>
+                                <div class="text-xs text-gray-500">披薩 / 地中海料理 / 調酒</div>
+                            </div>
+                            <a href="https://www.tablecheck.com/en/gochisoupizzabar/reserve/landing" target="_blank"
+                                class="bg-blue-500 text-white text-xs px-3 py-1 rounded">線上訂位</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bars -->
+                <div class="bg-gray-800 text-white p-4 rounded-lg">
+                    <h3 class="font-bold mb-2 flex items-center"><span class="mr-2">🍷</span> 飯店附近酒吧 (步行2分鐘)</h3>
+                    <div class="flex flex-wrap gap-2 text-xs">
+                        <span class="bg-gray-700 px-2 py-1 rounded">Tanuki Bar</span>
+                        <span class="bg-gray-700 px-2 py-1 rounded">Guru Guru (自然酒)</span>
+                        <span class="bg-gray-700 px-2 py-1 rounded">Pig & Barrel (精釀啤酒)</span>
+                        <span class="bg-gray-700 px-2 py-1 rounded">Yama Bar (自釀啤酒)</span>
+                    </div>
+                    <div class="mt-3 pt-3 border-t border-gray-700">
+                        <a href="https://www.tablecheck.com/en/nozawaonsendistillery/reserve/landing" target="_blank"
+                            class="text-cyan-300 text-sm hover:underline">
+                            <i class="fas fa-external-link-alt mr-1"></i> 野澤溫泉蒸餾所 - 品酒體驗預約
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HATCHOBORI DINING -->
+            <div class="mb-8">
+                <h2 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
+                    <span
+                        class="bg-purple-600 text-white w-8 h-8 rounded-full flex items-center justify-center mr-2 text-sm">都</span>
+                    八丁堀 & 東京周邊
+                </h2>
+                <div class="grid gap-4">
+                    <div class="bg-white p-4 rounded-lg shadow border-l-4 border-yellow-400">
+                        <div class="flex justify-between">
+                            <h3 class="font-bold text-lg">麵屋 七彩 (Shichisai) <a
+                                    href="https://www.google.com/maps/search/?api=1&query=麺屋+七彩+八丁堀" target="_blank"
+                                    class="text-blue-400 text-xs"><i class="fas fa-map-marker-alt"></i></a></h3>
+                            <span class="text-xs bg-yellow-100 text-yellow-800 px-2 py-1 rounded">推</span>
+                        </div>
+                        <p class="text-sm text-gray-600">飯店步行圈。現點現揉手打拉麵，必吃！</p>
+                    </div>
+                    <div class="bg-gray-100 p-4 rounded-lg">
+                        <h3 class="font-bold text-gray-800 mb-2">最後一晚推薦區域</h3>
+                        <ul class="list-disc pl-5 text-sm space-y-2 text-gray-700">
+                            <li>銀座 (高級燒肉/壽喜燒)</li>
+                            <li>東京車站一番街 (拉麵/壽司)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION: ATTRACTIONS -->
+        <div id="section-attractions" class="hidden-section">
+            <div class="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-lg shadow-lg text-white p-6 mb-6">
+                <h2 class="text-2xl font-bold mb-2">🏙️ SHIBUYA SKY (週五場)</h2>
+                <p class="mb-2 text-sm">2/20 (五) 推薦時段：16:20 - 16:40 (日落場)</p>
+                <a href="https://www.shibuya-scramble-square.com/sky/ticket/zh_tw/" target="_blank"
+                    class="inline-block bg-white text-indigo-600 text-sm font-bold py-2 px-4 rounded-full">
+                    預約購票 (1/20搶票)
+                </a>
+            </div>
+            <div class="bg-white p-6 rounded-lg shadow mb-6">
+                <h2 class="text-lg font-bold border-b pb-2 mb-4">2/21 (六) 淺草 & 銀座</h2>
+                <ul class="space-y-4 text-sm">
+                    <li><i class="fas fa-gopuram text-red-500 w-6"></i> <strong>09:00 淺草寺：</strong>趁早參拜。</li>
+                    <li><i class="fas fa-walking text-gray-500 w-6"></i> <strong>14:30 銀座：</strong>步行者天國。</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- SECTION: TRANSPORT & SKI -->
+        <div id="section-transport" class="hidden-section">
+
+            <!-- 2/15 SKYLINER QUERY (NEW) -->
+            <div class="bg-white border-l-4 border-blue-600 rounded-lg p-4 mb-4 shadow-lg">
+                <div class="flex justify-between items-center mb-2">
+                    <h3 class="font-bold text-xl text-blue-700">2/15 機場快線 Skyliner</h3>
+                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">入國日</span>
+                </div>
+                <p class="text-sm text-gray-600 mb-3">
+                    <i class="fas fa-plane-arrival"></i> 班機 18:00 抵達 (TR874)<br>
+                    <i class="fas fa-clock"></i> 預抓 1 小時入境，建議搭乘 19:00 後班次。
+                </p>
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <div class="flex-1 bg-gray-50 p-2 rounded text-center">
+                        <div class="text-xs text-gray-500">起點</div>
+                        <div class="font-bold">成田機場 (Narita)</div>
+                    </div>
+                    <div class="flex items-center justify-center text-gray-400"><i class="fas fa-arrow-right"></i></div>
+                    <div class="flex-1 bg-gray-50 p-2 rounded text-center">
+                        <div class="text-xs text-gray-500">終點</div>
+                        <div class="font-bold">京成上野 (Ueno)</div>
+                    </div>
+                </div>
+                <a href="https://world.jorudan.co.jp/mln/zh-tw/?p=0&xpd=1&from=成田機場&to=京成上野&date=20260215&time=1900&ft=0"
+                    target="_blank"
+                    class="block mt-4 bg-blue-600 text-white text-center py-3 rounded-lg font-bold hover:bg-blue-700 transition">
+                    <i class="fas fa-search"></i> 查詢 19:00 後班次
+                </a>
+            </div>
+
+            <!-- SHINKANSEN INFO -->
+            <div class="bg-gradient-to-r from-green-500 to-teal-500 text-white rounded-lg p-4 mb-4 shadow-lg">
+                <h3 class="font-bold text-xl mb-2"><i class="fas fa-train mr-2"></i>北陸新幹線 HAKUTAKA</h3>
+                <p class="text-sm opacity-90 mb-3">東京 → 飯山 (約1小時40分)</p>
+                <div class="grid grid-cols-2 gap-3 text-sm">
+                    <div class="bg-white/20 p-2 rounded">
+                        <div class="text-xs opacity-75">自由席</div>
+                        <div class="font-bold">¥8,250/人</div>
+                    </div>
+                    <div class="bg-white/20 p-2 rounded">
+                        <div class="text-xs opacity-75">指定席</div>
+                        <div class="font-bold">¥8,980/人</div>
+                    </div>
+                </div>
+                <div class="mt-3 text-xs opacity-75">
+                    <i class="fas fa-child mr-1"></i> 7-12歲半價 / 6歲以下免費 (不佔位)
+                </div>
+                <a href="https://www.eki-net.com/Personal/reserve/wb/RouteSearchConditionInput/Index" target="_blank"
+                    class="block mt-3 bg-white text-green-700 text-center py-2 rounded font-bold text-sm">
+                    <i class="fas fa-ticket-alt mr-1"></i> JR東日本預訂 (えきねっと)
+                </a>
+            </div>
+
+            <!-- NOZAWA LINER -->
+            <div class="bg-white border-l-4 border-cyan-500 rounded-lg p-4 mb-4 shadow">
+                <div class="flex justify-between items-center mb-2">
+                    <h3 class="font-bold text-lg text-cyan-700"><i class="fas fa-bus mr-2"></i>野澤溫泉 Liner</h3>
+                    <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">免預約</span>
+                </div>
+                <p class="text-sm text-gray-600 mb-3">飯山站 → 中央巴士站 (約20-25分)</p>
+                <div class="grid grid-cols-3 gap-2 text-center text-sm mb-3">
+                    <div class="bg-gray-50 p-2 rounded">
+                        <div class="text-xs text-gray-500">成人</div>
+                        <div class="font-bold">¥600</div>
+                    </div>
+                    <div class="bg-gray-50 p-2 rounded">
+                        <div class="text-xs text-gray-500">6-12歲</div>
+                        <div class="font-bold">¥300</div>
+                    </div>
+                    <div class="bg-gray-50 p-2 rounded">
+                        <div class="text-xs text-gray-500">6歲以下</div>
+                        <div class="font-bold text-green-600">免費</div>
+                    </div>
+                </div>
+                <a href="https://nozawaonsen.info/en/nozawa-onsen-liner/" target="_blank"
+                    class="text-cyan-600 text-sm hover:underline">
+                    <i class="fas fa-external-link-alt mr-1"></i> 查看時刻表
+                </a>
+            </div>
+
+            <!-- SUICA TIP -->
+            <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-4">
+                <h3 class="font-bold text-yellow-800 mb-2"><i class="fas fa-credit-card mr-2"></i>建議：使用 Suica</h3>
+                <p class="text-sm text-yellow-700 mb-2">Suica 可用於新幹線、Nozawa Liner、便利商店等。省去排隊買票時間！</p>
+                <div class="flex gap-2">
+                    <a href="https://apps.apple.com/jp/app/suica/id1156875272" target="_blank"
+                        class="text-xs bg-gray-800 text-white px-2 py-1 rounded">
+                        <i class="fab fa-apple mr-1"></i> iPhone
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=com.suica.android" target="_blank"
+                        class="text-xs bg-green-600 text-white px-2 py-1 rounded">
+                        <i class="fab fa-android mr-1"></i> Android
+                    </a>
+                </div>
+            </div>
+
+            <!-- SKI RENTAL & LIFT -->
+            <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+                <h2 class="text-lg font-bold text-blue-800 mb-3"><i class="fas fa-skiing mr-2"></i>滑雪資訊</h2>
+
+                <!-- Hotel Rental -->
+                <div class="bg-white p-3 rounded shadow-sm mb-3">
+                    <div class="flex justify-between items-center mb-2">
+                        <h3 class="font-bold text-gray-800">🎿 Haus St. Anton 雪具租借</h3>
+                        <span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded">住客7折</span>
+                    </div>
+                    <p class="text-xs text-gray-500 mb-2">位於日影雪場 / 滑完可寄放、空手回飯店</p>
+                    <div class="text-xs text-gray-600">
+                        可租：滑雪板/雪板、雪靴、雪杖、雪衣褲<br>
+                        <span class="text-red-500">⚠ 手套/護目鏡/帽子需自備或現場購買</span>
+                    </div>
+                    <a href="https://st-anton.jp/en/rental/" target="_blank"
+                        class="inline-block mt-2 text-blue-600 text-xs hover:underline">
+                        <i class="fas fa-external-link-alt mr-1"></i> 線上預約雪具
+                    </a>
+                </div>
+
+                <!-- Lift Pass -->
+                <div class="bg-white p-3 rounded shadow-sm mb-3">
+                    <h3 class="font-bold text-gray-800 mb-2">💳 纜車票 (White Card)</h3>
+                    <p class="text-xs text-gray-500 mb-2">飯店櫃檯購買可享優惠價</p>
+                    <ol class="text-xs text-gray-600 list-decimal pl-4 space-y-1">
+                        <li>購買 White Card (¥300)</li>
+                        <li>掃描 QR Code 選擇票種</li>
+                        <li>信用卡付款後即可使用</li>
+                    </ol>
+                </div>
+
+                <!-- Ski School -->
+                <div class="bg-white p-3 rounded shadow-sm">
+                    <h3 class="font-bold text-gray-800 mb-2">👨‍🏫 滑雪課程</h3>
+                    <p class="text-xs text-gray-500 mb-2">1-2月非常熱門，建議提前預約</p>
+                    <a href="https://en.nozawaski.com/the-mountain/lesson/ski-school/" target="_blank"
+                        class="inline-block text-blue-600 text-xs hover:underline">
+                        <i class="fas fa-external-link-alt mr-1"></i> 預約滑雪課程
+                    </a>
+                </div>
+            </div>
+
+            <!-- Other Transport Queries -->
+            <h3 class="text-lg font-bold mb-3">🔎 其他移動查詢</h3>
+            <div class="space-y-3">
+                <div class="bg-white p-4 rounded-lg shadow flex justify-between items-center">
+                    <div>
+                        <div class="font-bold text-blue-600">2/16 上野 ➔ 飯山</div>
+                        <div class="text-xs text-gray-500">新幹線 Hakutaka</div>
+                    </div>
+                    <a href="https://world.jorudan.co.jp/mln/zh-tw/?p=0&xpd=1&from=上野&to=飯山&date=20260216&time=0900&ft=0"
+                        target="_blank" class="bg-blue-500 text-white px-3 py-1 text-sm rounded">查詢</a>
+                </div>
+                <div class="bg-white p-4 rounded-lg shadow flex justify-between items-center">
+                    <div>
+                        <div class="font-bold text-blue-600">2/19 飯山 ➔ 八丁堀</div>
+                        <div class="text-xs text-gray-500">新幹線+京葉線</div>
+                    </div>
+                    <a href="https://world.jorudan.co.jp/mln/zh-tw/?p=0&xpd=1&from=飯山&to=八丁堀&date=20260219&time=1000&ft=0"
+                        target="_blank" class="bg-blue-500 text-white px-3 py-1 text-sm rounded">查詢</a>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // --- DATA & CONFIG ---
+        const tripStartDate = new Date('2026-02-15T14:00:00');
+
+        const defaultItinerary = [
+            { date: '2/15 (日)', title: '抵達日本', desc: '18:00 抵達成田 -> Skyliner -> 入住上野 -> 晚餐(鴨to蔥/肉的大山)', loc: '上野' },
+            { date: '2/16 (一)', title: '移動日：前往雪國', desc: '新幹線 -> 飯山站 -> Nozawa Liner -> 野澤日影口民宿', loc: '野澤溫泉' },
+            { date: '2/17 (二)', title: '滑雪 Day 1', desc: '全日滑雪 / 晚上推薦去吃大茂ん蕎麥麵', loc: '野澤溫泉' },
+            { date: '2/18 (三)', title: '滑雪 Day 2', desc: '全日滑雪 / 溫泉街散策 / 試試野澤菜包', loc: '野澤溫泉' },
+            { date: '2/19 (四)', title: '返回東京', desc: '退房 -> 新幹線回東京 -> 入住 MIMARU八丁堀 -> 晚餐吃七彩拉麵', loc: '八丁堀' },
+            { date: '2/20 (五)', title: '澀谷 SKY', desc: '原宿/澀谷 -> 16:30 Shibuya Sky -> 晚餐', loc: '東京' },
+            { date: '2/21 (六)', title: '淺草 & 銀座', desc: '淺草雷門 -> 晴空塔 -> 銀座步行者天國', loc: '東京' },
+            { date: '2/22 (日)', title: '返程', desc: '09:00 Klook司機接送 -> 14:00 班機 (BR197)', loc: '回程' }
+        ];
+
+        // --- FUNCTIONS ---
+
+        function updateCountdown() {
+            const now = new Date();
+            const diff = tripStartDate - now;
+            const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+            const el = document.getElementById('countdown');
+            if (days > 0) el.innerText = days + " 天";
+            else if (days === 0) el.innerText = "就是今天！";
+            else el.innerText = "旅程已開始";
+        }
+
+        function switchTab(tabName) {
+            ['itinerary', 'transport', 'booking', 'attractions', 'dining'].forEach(t => {
+                const sec = document.getElementById('section-' + t);
+                const btn = document.getElementById('btn-' + t);
+                if (sec) sec.classList.add('hidden-section');
+                if (btn) {
+                    btn.classList.remove('tab-active', 'text-blue-600', 'border-blue-600');
+                    btn.classList.remove('text-blue-600');
+                }
+            });
+            document.getElementById('section-' + tabName).classList.remove('hidden-section');
+            document.getElementById('btn-' + tabName).classList.add('tab-active');
+        }
+
+        function loadItinerary() {
+            const container = document.getElementById('itinerary-container');
+            container.innerHTML = '';
+            const savedNotes = JSON.parse(localStorage.getItem('trip_notes') || '{}');
+
+            defaultItinerary.forEach((item, index) => {
+                const noteValue = savedNotes[index] || '';
+                const isSpecial = (index === 5 || index === 6);
+                const bgClass = isSpecial ? 'bg-indigo-50 border-indigo-200 border' : 'bg-white';
+
+                const card = document.createElement('div');
+                card.className = `${bgClass} p-4 rounded-lg shadow`;
+                card.innerHTML = `
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-bold px-2 py-1 rounded">${item.date}</span>
+                            <span class="ml-2 font-bold text-gray-800">${item.title}</span>
+                        </div>
+                        <span class="text-xs text-gray-500"><i class="fas fa-map-marker-alt"></i> ${item.loc}</span>
+                    </div>
+                    <p class="text-sm text-gray-600 mb-3">${item.desc}</p>
+                    <textarea 
+                        class="w-full text-sm p-2 border rounded bg-gray-50 focus:bg-white focus:outline-none focus:ring-1 focus:ring-blue-400" 
+                        rows="2" 
+                        placeholder="筆記..."
+                        oninput="saveNote(${index}, this.value)">${noteValue}</textarea>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function saveNote(index, value) {
+            const savedNotes = JSON.parse(localStorage.getItem('trip_notes') || '{}');
+            savedNotes[index] = value;
+            localStorage.setItem('trip_notes', JSON.stringify(savedNotes));
+        }
+
+        window.onload = function () {
+            updateCountdown();
+            loadItinerary();
+        };
+
+    </script>
+</body>
+
+</html>
